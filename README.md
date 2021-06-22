@@ -14,7 +14,7 @@ Generally it is something like http://192.168.50.115:1880/ ==> you need to repla
 ### Now you need to create the flow associated to the node (node-red is the sum of nodes and flows)
 #### Go to the menu again (burger :-))  and choose import.
 #### Click select a file to import
-#### copy paste this into the filename: https://raw.githubusercontent.com/jac459/roon-node-red/main/roon-flow.json
+#### copy paste this into the filename: https://raw.githubusercontent.com/jac459/meta-broadlink/main/Broadlink-flow.json
 #### Click import and drag and drop the schema somewhere in the page (make it looks good).
 #### Click Deploy
 Congratulation, you are done.
