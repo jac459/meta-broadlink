@@ -1,5 +1,6 @@
 # meta-broadlink
 full control of your broadlink device through neeo and meta
+https://www.youtube.com/watch?v=Ub8pFTeWAiU
 
 ## How to install
 You need to use this driver with meta as well as a node-red flow.
