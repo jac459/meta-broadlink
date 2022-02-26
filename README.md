@@ -1,3 +1,5 @@
+# NEW VERSION TO INSTALL IF YOU HAVE COMPATBILITY ISSUE WITH RM MINI 3
+
 # meta-broadlink
 full control of your broadlink device through neeo and meta
 https://www.youtube.com/watch?v=Ub8pFTeWAiU
