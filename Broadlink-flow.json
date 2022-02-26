@@ -1,1 +1,511 @@
-[{"id":"c240b59f.282b48","type":"tab","label":"Broadlink","disabled":false,"info":""},{"id":"8398ed57.1c621","type":"Discover","z":"c240b59f.282b48","name":"","x":320,"y":60,"wires":[["db4b3070.19dbd","fda5155c.199b98"]]},{"id":"db4b3070.19dbd","type":"http response","z":"c240b59f.282b48","name":"http-response","statusCode":"","headers":{},"x":540,"y":80,"wires":[]},{"id":"19730d5a.69ef83","type":"http in","z":"c240b59f.282b48","name":"http-request","url":"/meta/broadlink","method":"get","upload":false,"swaggerDoc":"","x":150,"y":60,"wires":[["8398ed57.1c621"]]},{"id":"47b9e69a.bab948","type":"RM","z":"c240b59f.282b48","name":"","device":"","action":"_msg_","remote":"","button":"","fix":1,"RFSweep":"false","x":650,"y":140,"wires":[["2822cfed.83a1b"]]},{"id":"cca78f7c.5ec1b","type":"function","z":"c240b59f.282b48","name":"","func":"\nmsg.payload = JSON.parse(msg.payload);\nmsg.type = msg.payload.type;\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":300,"y":240,"wires":[["70fe456.f3aa6bc","2f3fc33e.b108fc"]]},{"id":"2822cfed.83a1b","type":"mqtt out","z":"c240b59f.282b48","name":"","topic":"meta/BroadlinkAC/IR","qos":"","retain":"","respTopic":"","contentType":"","userProps":"","correl":"","expiry":"","broker":"9eade743.d590e8","x":920,"y":240,"wires":[]},{"id":"fda5155c.199b98","type":"debug","z":"c240b59f.282b48","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":530,"y":40,"wires":[]},{"id":"70fe456.f3aa6bc","type":"switch","z":"c240b59f.282b48","name":"","property":"type","propertyType":"msg","rules":[{"t":"eq","v":"2737","vt":"str"},{"t":"eq","v":"2711","vt":"str"},{"t":"eq","v":"2714","vt":"str"},{"t":"eq","v":"4EB5","vt":"str"}],"checkall":"true","repair":false,"outputs":4,"x":470,"y":240,"wires":[["47b9e69a.bab948"],["4d328604.433c08"],["cc9595ec.ec9f78"],["1f13cba5.7d3ff4"]]},{"id":"2f3fc33e.b108fc","type":"debug","z":"c240b59f.282b48","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","statusVal":"","statusType":"auto","x":470,"y":180,"wires":[]},{"id":"cc9595ec.ec9f78","type":"A1","z":"c240b59f.282b48","name":"","x":650,"y":280,"wires":[["2822cfed.83a1b"]]},{"id":"4d328604.433c08","type":"SP2","z":"c240b59f.282b48","name":"","action":"getState","state":"true","x":650,"y":200,"wires":[["2822cfed.83a1b"]]},{"id":"1f13cba5.7d3ff4","type":"MP1","z":"c240b59f.282b48","name":"","device":"","action":"getState","s1":true,"s2":false,"s3":false,"s4":false,"state":"true","x":650,"y":340,"wires":[["2822cfed.83a1b"]]},{"id":"3b4ab94f.ce1156","type":"mqtt in","z":"c240b59f.282b48","name":"","topic":"meta/BroadlinkAC","qos":"2","datatype":"auto","broker":"9eade743.d590e8","nl":false,"rap":true,"rh":0,"x":130,"y":240,"wires":[["cca78f7c.5ec1b"]]},{"id":"540f34b0.3945ec","type":"RM","z":"c240b59f.282b48","name":"","device":"","action":"_msg_","remote":"","button":"","fix":1,"RFSweep":"false","x":650,"y":420,"wires":[["e3eeb663.30b078","73ad8711.382148"]]},{"id":"866ba441.2cf1b8","type":"function","z":"c240b59f.282b48","name":"","func":"\nmsg.payload = JSON.parse(msg.payload);\nmsg.type = msg.payload.type;\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":300,"y":520,"wires":[["c24d614f.ce35c","69fcd691.5425d8"]]},{"id":"e3eeb663.30b078","type":"mqtt out","z":"c240b59f.282b48","name":"","topic":"meta/BroadlinkTV/IR","qos":"","retain":"","respTopic":"","contentType":"","userProps":"","correl":"","expiry":"","broker":"9eade743.d590e8","x":920,"y":520,"wires":[]},{"id":"c24d614f.ce35c","type":"switch","z":"c240b59f.282b48","name":"","property":"type","propertyType":"msg","rules":[{"t":"eq","v":"2737","vt":"str"},{"t":"eq","v":"2711","vt":"str"},{"t":"eq","v":"2714","vt":"str"},{"t":"eq","v":"4EB5","vt":"str"}],"checkall":"true","repair":false,"outputs":4,"x":470,"y":520,"wires":[["540f34b0.3945ec"],["ee7ba534.fc51e8"],["1df22f6d.69a8b1"],["4efb457b.96726c"]]},{"id":"69fcd691.5425d8","type":"debug","z":"c240b59f.282b48","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","statusVal":"","statusType":"auto","x":470,"y":460,"wires":[]},{"id":"1df22f6d.69a8b1","type":"A1","z":"c240b59f.282b48","name":"","x":650,"y":560,"wires":[["e3eeb663.30b078"]]},{"id":"ee7ba534.fc51e8","type":"SP2","z":"c240b59f.282b48","name":"","action":"getState","state":"true","x":650,"y":480,"wires":[["e3eeb663.30b078"]]},{"id":"4efb457b.96726c","type":"MP1","z":"c240b59f.282b48","name":"","device":"","action":"getState","s1":true,"s2":false,"s3":false,"s4":false,"state":"true","x":650,"y":620,"wires":[["e3eeb663.30b078"]]},{"id":"4e650fde.7d1a7","type":"mqtt in","z":"c240b59f.282b48","name":"","topic":"meta/BroadlinkTV","qos":"2","datatype":"auto","broker":"9eade743.d590e8","nl":false,"rap":true,"rh":0,"x":130,"y":520,"wires":[["866ba441.2cf1b8"]]},{"id":"73ad8711.382148","type":"debug","z":"c240b59f.282b48","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","statusVal":"","statusType":"auto","x":810,"y":380,"wires":[]},{"id":"9eade743.d590e8","type":"mqtt-broker","name":"MQTT-M1","broker":"localhost","port":"1883","clientid":"","usetls":false,"protocolVersion":"4","keepalive":"60","cleansession":true,"birthTopic":"","birthQos":"0","birthRetain":"false","birthPayload":"","birthMsg":{},"closeTopic":"","closeQos":"0","closePayload":"","closeMsg":{},"willTopic":"","willQos":"0","willPayload":"","willMsg":{},"sessionExpiry":""}]
+[
+    {
+        "id": "c240b59f.282b48",
+        "type": "tab",
+        "label": "Broadlink",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8398ed57.1c621",
+        "type": "Discover",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "x": 320,
+        "y": 60,
+        "wires": [
+            [
+                "db4b3070.19dbd",
+                "fda5155c.199b98"
+            ]
+        ]
+    },
+    {
+        "id": "db4b3070.19dbd",
+        "type": "http response",
+        "z": "c240b59f.282b48",
+        "name": "http-response",
+        "statusCode": "",
+        "headers": {},
+        "x": 540,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "19730d5a.69ef83",
+        "type": "http in",
+        "z": "c240b59f.282b48",
+        "name": "http-request",
+        "url": "/meta/broadlink",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [
+                "8398ed57.1c621"
+            ]
+        ]
+    },
+    {
+        "id": "47b9e69a.bab948",
+        "type": "RM",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "device": "",
+        "action": "_msg_",
+        "remote": "",
+        "button": "",
+        "fix": 1,
+        "RFSweep": "false",
+        "x": 650,
+        "y": 140,
+        "wires": [
+            [
+                "2822cfed.83a1b",
+                "2f3fc33e.b108fc"
+            ]
+        ]
+    },
+    {
+        "id": "cca78f7c.5ec1b",
+        "type": "function",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "func": "\nmsg.payload = JSON.parse(msg.payload);\nmsg.type = msg.payload.type;\nmsg.devType = msg.payload.type;\nmsg.payload.devType = msg.payload.type;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 240,
+        "wires": [
+            [
+                "70fe456.f3aa6bc"
+            ]
+        ]
+    },
+    {
+        "id": "2822cfed.83a1b",
+        "type": "mqtt out",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "topic": "meta/BroadlinkAC/IR",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9eade743.d590e8",
+        "x": 920,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "fda5155c.199b98",
+        "type": "debug",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "70fe456.f3aa6bc",
+        "type": "switch",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "property": "type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "2737",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2711",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2714",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "4EB5",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "5f36",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 470,
+        "y": 240,
+        "wires": [
+            [
+                "47b9e69a.bab948"
+            ],
+            [
+                "4d328604.433c08"
+            ],
+            [
+                "cc9595ec.ec9f78"
+            ],
+            [
+                "1f13cba5.7d3ff4"
+            ],
+            [
+                "47b9e69a.bab948",
+                "2f3fc33e.b108fc"
+            ]
+        ]
+    },
+    {
+        "id": "2f3fc33e.b108fc",
+        "type": "debug",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "cc9595ec.ec9f78",
+        "type": "A1",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "x": 650,
+        "y": 280,
+        "wires": [
+            [
+                "2822cfed.83a1b"
+            ]
+        ]
+    },
+    {
+        "id": "4d328604.433c08",
+        "type": "SP2",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "action": "getState",
+        "state": "true",
+        "x": 650,
+        "y": 200,
+        "wires": [
+            [
+                "2822cfed.83a1b"
+            ]
+        ]
+    },
+    {
+        "id": "1f13cba5.7d3ff4",
+        "type": "MP1",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "device": "",
+        "action": "getState",
+        "s1": true,
+        "s2": false,
+        "s3": false,
+        "s4": false,
+        "state": "true",
+        "x": 650,
+        "y": 340,
+        "wires": [
+            [
+                "2822cfed.83a1b"
+            ]
+        ]
+    },
+    {
+        "id": "3b4ab94f.ce1156",
+        "type": "mqtt in",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "topic": "meta/BroadlinkAC",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "9eade743.d590e8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "cca78f7c.5ec1b",
+                "2f3fc33e.b108fc"
+            ]
+        ]
+    },
+    {
+        "id": "540f34b0.3945ec",
+        "type": "RM",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "device": "",
+        "action": "_msg_",
+        "remote": "",
+        "button": "",
+        "fix": 1,
+        "RFSweep": "false",
+        "x": 650,
+        "y": 420,
+        "wires": [
+            [
+                "e3eeb663.30b078",
+                "73ad8711.382148"
+            ]
+        ]
+    },
+    {
+        "id": "866ba441.2cf1b8",
+        "type": "function",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "func": "\nmsg.payload = JSON.parse(msg.payload);\nmsg.type = msg.payload.type;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 520,
+        "wires": [
+            [
+                "c24d614f.ce35c",
+                "69fcd691.5425d8"
+            ]
+        ]
+    },
+    {
+        "id": "e3eeb663.30b078",
+        "type": "mqtt out",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "topic": "meta/BroadlinkTV/IR",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9eade743.d590e8",
+        "x": 920,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "c24d614f.ce35c",
+        "type": "switch",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "property": "type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "2737",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2711",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2714",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "4EB5",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "5f36",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 470,
+        "y": 520,
+        "wires": [
+            [
+                "540f34b0.3945ec"
+            ],
+            [
+                "ee7ba534.fc51e8"
+            ],
+            [
+                "1df22f6d.69a8b1"
+            ],
+            [
+                "4efb457b.96726c"
+            ],
+            [
+                "540f34b0.3945ec"
+            ]
+        ]
+    },
+    {
+        "id": "69fcd691.5425d8",
+        "type": "debug",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "1df22f6d.69a8b1",
+        "type": "A1",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "x": 650,
+        "y": 560,
+        "wires": [
+            [
+                "e3eeb663.30b078"
+            ]
+        ]
+    },
+    {
+        "id": "ee7ba534.fc51e8",
+        "type": "SP2",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "action": "getState",
+        "state": "true",
+        "x": 650,
+        "y": 480,
+        "wires": [
+            [
+                "e3eeb663.30b078"
+            ]
+        ]
+    },
+    {
+        "id": "4efb457b.96726c",
+        "type": "MP1",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "device": "",
+        "action": "getState",
+        "s1": true,
+        "s2": false,
+        "s3": false,
+        "s4": false,
+        "state": "true",
+        "x": 650,
+        "y": 620,
+        "wires": [
+            [
+                "e3eeb663.30b078"
+            ]
+        ]
+    },
+    {
+        "id": "4e650fde.7d1a7",
+        "type": "mqtt in",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "topic": "meta/BroadlinkTV",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "9eade743.d590e8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 130,
+        "y": 520,
+        "wires": [
+            [
+                "866ba441.2cf1b8"
+            ]
+        ]
+    },
+    {
+        "id": "73ad8711.382148",
+        "type": "debug",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "9eade743.d590e8",
+        "type": "mqtt-broker",
+        "name": "MQTT-M1",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]
