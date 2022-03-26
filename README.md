@@ -1,4 +1,5 @@
-# NEW VERSION TO INSTALL IF YOU HAVE COMPATIBILITY ISSUES WITH RM MINI 3
+# NEW VERSION March 2022 Fix for TV learning issue on some RM MINI 3 
+# NEW VERSION TO INSTALL IF YOU HAVE COMPATIBILITY ISSUES WITH RM MINI 3 
 
 # meta-broadlink
 full control of your broadlink device through neeo and meta
